@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2015 Pedro Vicente Gomez Sanchez.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,52 +19,60 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-  <ImageView
-      android:id="@+id/iv_lynx_icon"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_centerHorizontal="true"
-      android:layout_alignParentTop="true"
-      android:layout_marginTop="@dimen/lynx_icon_margin_top"
-      android:src="@drawable/ic_lynx"/>
+    <ImageView
+        android:id="@+id/iv_lynx_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/lynx_icon_margin_top"
+        android:src="@drawable/ic_lynx" />
 
-  <Button
-      android:id="@+id/bt_show_lynx_activity"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_above="@+id/bt_show_lynx_view"
-      android:layout_centerHorizontal="true"
-      android:layout_margin="@dimen/button_margin"
-      android:text="@string/show_lynx_activity"/>
+    <Button
+        android:id="@+id/bt_show_lynx_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bt_show_lynx_view"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/button_margin"
+        android:text="@string/show_lynx_activity" />
 
-  <Button
-      android:id="@+id/bt_show_lynx_view"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_above="@+id/tv_info"
-      android:layout_centerHorizontal="true"
-      android:layout_margin="@dimen/button_margin"
-      android:text="@string/show_lynx_view"/>
+    <Button
+        android:id="@+id/bt_show_lynx_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bt_log_file"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/button_margin"
+        android:text="@string/show_lynx_view" />
 
-  <TextView
-      android:id="@+id/tv_info"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_centerHorizontal="true"
-      android:layout_alignParentBottom="true"
-      android:layout_margin="@dimen/text_view_margin"
-      android:text="@string/shake_to_show_lynx_view"
-      android:gravity="center"/>
+    <Button
+        android:id="@+id/bt_log_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_info"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/button_margin"
+        android:text="Log file" />
 
-  <com.github.pedrovgs.lynx.LynxView
-      xmlns:lynx="http://schemas.android.com/apk/res-auto"
-      android:id="@+id/lynx_view"
-      android:layout_width="match_parent"
-      android:layout_height="@dimen/lynx_view_height"
-      android:visibility="gone"
-      lynx:filter="Lynx"
-      lynx:max_traces_to_show="1500"
-      lynx:text_size="12sp"
-      lynx:sampling_rate="200"/>
+    <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/text_view_margin"
+        android:gravity="center"
+        android:text="@string/shake_to_show_lynx_view" />
+
+    <com.github.pedrovgs.lynx.LynxView xmlns:lynx="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/lynx_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lynx_view_height"
+        android:visibility="gone"
+        lynx:filter="Lynx"
+        lynx:max_traces_to_show="1500"
+        lynx:sampling_rate="200"
+        lynx:text_size="12sp" />
 
 </RelativeLayout>

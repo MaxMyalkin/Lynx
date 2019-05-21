@@ -22,9 +22,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
 import com.github.pedrovgs.lynx.LynxActivity;
 import com.github.pedrovgs.lynx.LynxConfig;
 import com.github.pedrovgs.lynx.model.TraceLevel;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+
+import okio.Buffer;
+import okio.Okio;
 
 /**
  * Activity created to show how to use Lynx.
@@ -60,6 +68,14 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
+    final Button logFileBtn = (Button) findViewById(R.id.bt_log_file);
+    logFileBtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            logFile();
+        }
+    });
+
     generateFiveRandomTracesPerSecond();
   }
 
@@ -73,6 +89,19 @@ public class MainActivity extends AppCompatActivity {
     Intent lynxActivityIntent = LynxActivity.getIntent(this, lynxConfig);
     startActivity(lynxActivityIntent);
   }
+
+    private void logFile() {
+        try {
+            InputStream is = getAssets().open("testfile.jpg");
+            Buffer buffer = new Buffer();
+            buffer.writeAll(Okio.source(is));
+            Log.d("File", buffer.readString(Charset.defaultCharset()));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
   @Override protected void onDestroy() {
     super.onDestroy();
